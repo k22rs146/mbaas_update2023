@@ -138,7 +138,22 @@
                     $("#display").html("delete fail:" + JSON.stringify(error));
                 })
         }
-
+        function TwiceData() {
+            let uTdata = new UTdata();
+            let value = parseInt($("#data").val())*2;
+            uTdata.set(key, value)
+                .save()
+                .then(function(results) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-success");
+                    $("#display").html("enter success");
+                })
+                .catch(function(results) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("enter fail");
+                })
+        }
 
     </script>
 </head>
