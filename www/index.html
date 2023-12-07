@@ -119,6 +119,25 @@
                     $("#display").html("update fail:" + JSON.stringify(error));
                 })
         }
+
+        function reverseData() {
+            UTdata.order(key, false).fetchAll()
+                .then(function(results) {
+                    let msg = "";
+                    for (let i = 0; i < results.length; i++) {
+                        msg += results[i].get(key) + "<br>";
+                    }
+                    $("#display").removeClass();
+                    $("#display").addClass("text-light");
+                    $("#display").addClass("bg-primary");
+                    $("#display").html(msg);
+                })
+                .catch(function(error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("delete fail:" + JSON.stringify(error));
+                })
+        }
     </script>
 </head>
 
